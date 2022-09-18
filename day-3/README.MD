@@ -88,7 +88,7 @@
   - Reverses the condition
 
 #### Exercise: Rollercoaster Ticket
-- NOTE: line of indentation matters a lot!!
+- NOTE: line indentation matters a lot!!
 ```py
 print("Welcome to the rollercoaster!")
 height = int(input("What is your height in cm? "))
