@@ -1,5 +1,16 @@
 ## DAY 1 - Working with Variables to Manage Data
 
+#### Today's lessons:
+- print() and input() functions
+- Variables, variable naming rules
+- Comment code
+- Project: Band Name Generator
+
+#### Functions:
+- print()
+- input()
+- len()
+
 #### The print() function
 - Printing to the console
 - `print("What you want to print")`
@@ -48,7 +59,7 @@
   - cannot start with a number
   - try not to use reserved keywords such as print, input, etc
 
-### Day 1 Project: Band name generator
+### Day 1 Project: Band Name Generator
 1. Create a greeting for your program
   - `print("Welcome to the band name generator")`
 2. Ask the user for the city that they grew up in

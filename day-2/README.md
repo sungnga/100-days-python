@@ -1,5 +1,17 @@
 ## Day 2 - Data Types and Type Manipulation
 
+#### Today's lessons:
+- Data types
+- Converting types
+- f-strings
+- Mathematical operations
+- Project: Tip Calculator
+
+#### Functions:
+- type()
+- str(), float(), int(), round()
+- f" {variable}"
+
 #### Primitive data types
 - **String**
   - Strings are surrounded by single or double quotation

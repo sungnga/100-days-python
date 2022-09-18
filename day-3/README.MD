@@ -1,10 +1,16 @@
 ## Day 3 - Control Flow and Logical Operations
 
 #### Today's lessons:
-- Conditional statements
+- Conditionals if/elif/else
+- Conditional operators
 - Logical operators
 - Code blocks
 - Scope
+
+#### Functions:
+- if/else
+- if/elif/else
+
 
 #### Control flow with if/else and conditional operator
 - if/else statement
