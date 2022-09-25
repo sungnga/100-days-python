@@ -3,6 +3,7 @@
 #### Today's lessons:
 - For loops
 - The range() function
+- Modulo operation
 
 #### Functions:
 - range()
