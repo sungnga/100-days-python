@@ -9,6 +9,7 @@
 - Simple function: my_function()
 - Function that allows input: my_function(input)
 - Function with more than 1 input: my_function(input1, input2, input3)
+- To get item position in a list: .index()
 
 #### Functions with inputs
 - Simple function:
