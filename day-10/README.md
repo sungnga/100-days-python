@@ -186,7 +186,7 @@ def calculator():
 calculator()
 ```
 
-#### Calculator part 2: Finishing touches and bug fixes
+#### Calculator part 3: Finishing touches and bug fixes
 - Print out the calculator art when the program starts
 - Change the code so that the program can accept user's input that contain decimals
 - File: calculator_art.py
