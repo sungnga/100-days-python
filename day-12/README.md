@@ -123,15 +123,16 @@ while attempts > 0:
   
   if guess < chosen_num:
     print("Too low.")
-    print("Guess again.")
     attempts -= 1
   elif guess > chosen_num:
     print("Too high.")
-    print("Guess again.")
     attempts -= 1
   else:
-    print(f"Your guess {guess} is correct, you win!")
+    print(f"You've guessed the correct number, congratulations!")
     break
+    
+  if attempts > 0:
+    print("Guess again.")
 else:
   print("You've run out of guesses, you lose.")
 ```
