@@ -51,3 +51,101 @@
     Coffee: 76g
     Money: $2.5
   b. Once all resources have been deducted, tell the user “Here is your latte. Enjoy!”. If latte was their choice of drink.
+
+```py
+MENU = {
+	"espresso": {
+		"ingredients": {
+			"water": 50,
+			"coffee": 18,
+		},
+		"cost": 1.5,
+	},
+	"latte": {
+		"ingredients": {
+			"water": 200,
+			"milk": 150,
+			"coffee": 24,
+		},
+		"cost": 2.5,
+	},
+	"cappuccino": {
+		"ingredients": {
+			"water": 250,
+			"milk": 100,
+			"coffee": 24,
+		},
+		"cost": 3.0,
+	}
+}
+
+resources = {
+	"water": 300,
+	"milk": 200,
+	"coffee": 100,
+	"money": 0
+}
+
+
+def check_payment(quarters, dimes, nickles, pennies, drink_cost):
+	total = (quarters * .25) + (dimes * .10) + (nickles * .05) + (pennies * .01)
+	if total < drink_cost:
+		print("Sorry that's not enough money. Money refunded.")
+		return False
+	else:
+		change = round(total - drink_cost, 2)
+		print(f"Here is ${change} in change.")
+		return True
+
+
+def check_resources(drink_type):
+	for key in resources:
+		if chosen_drink == "espresso" and key == "milk":
+			continue
+		if resources["key"] < drink_type["key"]:
+			print(f"Sorry there is not enough {key}.")
+			return False
+		else:
+			return True
+
+
+def make_drink(drink_type, supply):
+	supply["water"] -= drink_type["ingredients"]["water"]
+	supply["milk"] -= drink_type["ingredients"]["milk"]
+	supply["coffee"] -= drink_type["ingredients"]["coffee"]
+
+
+def order_drink(drink):
+	# Ask user for payment
+	print("Please insert coins.")
+	num_quarters = int(input("How many quarters?: "))
+	num_dimes = int(input("How many dimes?: "))
+	num_nickles = int(input("How many nickles?: "))
+	num_pennies = int(input("How many pennies?: "))
+
+	payment_success = check_payment(quarters=num_quarters, dimes=num_dimes, nickles=num_nickles, pennies=num_pennies, drink_cost=drink["cost"])
+	resources_success = check_resources(drink)
+	if payment_success and resources_success:
+		make_drink(drink, resources)
+		resources["money"] += drink["cost"]
+		print(f"Here is your {user_input} ☕️. Enjoy!")
+
+
+machine_on = True
+
+while machine_on:
+	user_input = input(" What would you like? (espresso/latte/cappuccino): ")
+	chosen_drink = {}
+	if user_input == "espresso":
+		chosen_drink = MENU["espresso"]
+	elif user_input == "latte":
+		chosen_drink = MENU["latte"]
+	elif user_input == "cappuccino":
+		chosen_drink = MENU["cappuccino"]
+	elif user_input == "off":
+		machine_on = False
+
+	if chosen_drink:
+		order_drink(chosen_drink)
+		print(resources)
+```
