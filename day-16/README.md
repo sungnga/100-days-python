@@ -46,10 +46,30 @@
   ```
 
 #### How to add Python packages and use PyPi
-
+- Python Package Index: www.pypi.org
+- The Python Package Index (PyPI) is a repository of software for the Python programming language developed and shared by the Python community
+- **How to install and use a Python package:**
+  - Go to PyPI website and search for the package you want to install. Can also view the package docs here. Copy the name of the Python package
+  - PyCharm IDE, click on the Settings icon and select Preferences or press `CMND,`
+  - In the Preferences window, select the current project from menu. And then select Python Interpreter
+  - Click on the add `+` icon to install a package to the project. Paste the name of the Python package and click on Install Package
+  - Once the package is installed, it'll show up in the Python Interpreter's list of installed packages
+  - Now we can use the package by importing the module in our code file
 
 #### Practice modifying object attributes and calling methods
+- Install the prettyTable Python package from pypi.org website
+  ```py
+  from prettytable import PrettyTable
 
+  # Instantiate a table object from PrettyTable class
+  table = PrettyTable()
+  # Add a column by calling the .add_column() method
+  table.add_column("Pokemon Name", ["Pikachu", "Squirtle", "Charmander"])
+  table.add_column("Type", ["Electric", "Water", "File"])
+  # Accessing the align attribute and modify its value. Align column to left
+  table.align = "l"
 
+  print(table)
+  ```
 
 ### Day 16 project: The OOP Coffee Machine
