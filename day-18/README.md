@@ -73,10 +73,27 @@ screen.exitonclick()
   - This is the place we go find a module we want to use in our project and install it
 
 #### Turtle challenge 2 - draw a dashed line
+```py
+from turtle import Turtle, Screen
 
+turtle = Turtle()
+turtle.shape("turtle")
+turtle.color("purple")
+
+for _ in range(15):
+	turtle.forward(10)
+	turtle.penup()
+	turtle.forward(10)
+	turtle.pendown()
+
+screen = Screen()
+screen.exitonclick()
+```
 
 #### Turtle challenge 3 - drawing different shapes
+```py
 
+```
 
 #### Turtle challenge 4 - generate a random walk
 
