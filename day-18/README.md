@@ -92,14 +92,82 @@ screen.exitonclick()
 
 #### Turtle challenge 3 - drawing different shapes
 ```py
+from turtle import Turtle, Screen, colormode
+from random import randrange
 
+turtle = Turtle()
+turtle.shape("turtle")
+colormode(255)
+
+
+def change_color():
+	r = randrange(0, 256)
+	g = randrange(0, 256)
+	b = randrange(0, 256)
+	turtle.color((r, g, b))
+
+
+def draw_shape(num_sides):
+	degree = 360/num_sides
+	for _ in range(num_sides):
+		turtle.forward(100)
+		turtle.right(degree)
+
+
+shape_side = 3
+while shape_side < 11:
+	change_color()
+	draw_shape(shape_side)
+	shape_side += 1
+
+screen = Screen()
+screen.exitonclick()
 ```
 
 #### Turtle challenge 4 - generate a random walk
+```py
+from turtle import Turtle, Screen, colormode
+import random
 
+turtle = Turtle()
+colormode(255)
+turtle.width(5)
+turtle.speed("fast")
+directions = [0, 90, 180, 270]
+
+
+def change_color():
+	r = random.randrange(0, 256)
+	g = random.randrange(0, 256)
+	b = random.randrange(0, 256)
+	turtle.color((r, g, b))
+
+
+for _ in range(150):
+	change_color()
+	direction = random.choice(directions)
+	turtle.forward(25)
+	turtle.setheading(direction)
+
+screen = Screen()
+screen.exitonclick()
+```
 
 #### Python tuples and how to generate random RGB colors
-
+- A tuple is a data type in Python
+- Denoted by a pair of parenthesis: `(item1, item2, item3)`
+- Similar to a Python list, each item in a tuple is **ordered**
+- Unlike a list, a tuple is **immutable**
+- If you want to change the items inside a tuple, put the tuple in a list
+  ```py
+  my_tuple = (5, 8, 1)
+  list[my_tuple] #[5, 8, 1]
+  ```
+- To access items in a tuple, use the square bracket `[]` notation
+  ```py
+  my_tuple = (5, 8, 1)
+  my_tuple[2] #accessing third item
+  ```
 
 #### Turtle challenge 5 - draw a spirograph
 
