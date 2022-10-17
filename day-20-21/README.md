@@ -1,5 +1,11 @@
 # DAY 20-21 - Snake Game
 
+#### Today's lessons:
+- More turtle graphics
+  - update() method
+- Class inheritance
+- Slicing
+
 #### 7 steps to building the Snake Game:
 - Create a snake body
 - Move the snake
@@ -205,3 +211,117 @@ while game_is_on:
 
   screen.exitonclick()
   ```
+
+#### Class inheritance
+- A class an inherit attributes and methods from another class. This is known as **class inheritance**. The class that other classes can inherit from (a parent class) is known as the **superclass**
+- For example, a Fish class can inherit attributes and methods from an Animal class. The Animal class is the superclass. So a fish object that's constructed from the Fish class will inherit all the attributes and methods from the Animal class
+- Class inheritance:
+  ```py
+  class Fish(Animal):
+    def __init__(self):
+      # Initializing super class
+      super().__init__()
+  ```
+- Example of class inheritance:
+  ```py
+  class Animal:
+    def __init__(self):
+      self.num_eyes = 2
+
+    def breathe(self):
+      print('Inhale, exhale')
+
+  class Fish(Animal):
+    def __init__(self):
+      super().__init__()
+
+    # Modifying a method inherited from the superclass
+    def breathe(self):
+      # Get the functionality of the breathe() method from superclass
+      super().breathe()
+      # Add to the breathe() method from superclass
+      print('doing this underwater.')
+
+    def swim(self):
+      print('moving in water.')
+
+  nemo = Fish()
+  nemo.swim()
+  nemo.breathe()
+  print(nemo.num_eyes)
+  ```
+
+#### Step 4: Detect collision with food
+- Create a Food class that inherits from the Turtle class
+- Generate the food properties
+- Create a food object from the Food class in main.py file and display it on screen
+- Create a `refresh()` method of the Food class so the food will go to a random location
+- Compare the distance between the snake head and the food. If they're less than 15, move the food to a new random location by calling the refresh() method
+- File: food.py
+  ```py
+  from turtle import Turtle
+  import random
+
+  class Food(Turtle):
+    def __init__(self):
+      super().__init__()
+      self.shape('circle')
+      self.penup()
+      self.shapesize(stretch_len=0.5, stretch_wid=0.5)
+      self.color('magenta')
+      self.speed('fastest')
+      self.refresh()
+
+    # Move food object to random location
+    def refresh(self):
+      random_x = random.randint(-280, 280)
+      random_y = random.randint(-280, 280)
+      self.goto(random_x, random_y)
+  ```
+- File: main.py
+  - Import the Food class from
+  ```py
+  from turtle import Screen
+  from snake import Snake
+  from food import Food
+  import time
+
+  screen = Screen()
+  screen.setup(width=600, height=600)
+  screen.bgcolor('black')
+  screen.title('Snake Game')
+  screen.tracer(0)
+
+  snaky = Snake()
+  food = Food()
+
+  screen.listen()
+  screen.onkey(fun=snaky.up, key='Up')
+  screen.onkey(fun=snaky.down, key='Down')
+  screen.onkey(fun=snaky.left, key='Left')
+  screen.onkey(fun=snaky.right, key='Right')
+  screen.onkey(fun=snaky.stop, key='space')
+
+  # Move the snake
+  game_is_on = True
+  while game_is_on:
+    screen.update()
+    time.sleep(.1)
+    snaky.move()
+
+    # Detect collision with food
+    if snaky.head.distance(food) < 15:
+      food.refresh()
+
+  screen.exitonclick()
+  ```
+
+#### Step 5: Create a scoreboard
+- File: main.py
+  ```py
+
+  ```
+
+
+#### Step 6:
+#### Step 7:
