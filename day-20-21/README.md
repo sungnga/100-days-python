@@ -255,7 +255,7 @@ while game_is_on:
 - Create a Food class that inherits from the Turtle class
 - Generate the food properties
 - Create a food object from the Food class in main.py file and display it on screen
-- Create a `refresh()` method of the Food class so the food will go to a random location
+- Create a `refresh()` method on the Food class so the food will go to a random location
 - Compare the distance between the snake head and the food. If they're less than 15, move the food to a new random location by calling the refresh() method
 - File: food.py
   ```py
@@ -316,10 +316,54 @@ while game_is_on:
   screen.exitonclick()
   ```
 
-#### Step 5: Create a scoreboard
-- File: main.py
+#### Step 5: Create a scoreboard and keep score
+- File: scoreboard.py
+  - Create a Scoreboard class that's inherited from the Turtle class
+  - The Scoreboard class should have a method that increases the score by one point every time the snake head hits the food
   ```py
+  from turtle import Turtle
 
+  ALIGNMENT = 'center'
+  FONT = ('Courier', 20, 'normal')
+
+
+  class Scoreboard(Turtle):
+    def __init__(self):
+      super().__init__()
+      self.score = 0
+      self.color('white')
+      self.penup()
+      self.goto(0, 270)
+      self.hideturtle()
+      self.update_scoreboard()
+
+    def update_scoreboard(self):
+      self.write(f"Score: {self.score}", align=ALIGNMENT, font=FONT)
+
+    def increase_score(self):
+      self.score += 1
+      self.clear()
+      self.update_scoreboard()
+  ```
+- File: main.py
+  - Import the Scoreboard class
+  - Call the .increase_score() method when the snake head hits the food
+  ```py
+  from scoreboard import Scoreboard
+
+  scoreboard = Scoreboard()
+
+  # Move the snake
+  game_is_on = True
+  while game_is_on:
+    screen.update()
+    time.sleep(.1)
+    snaky.move()
+
+    # Detect collision with food
+    if snaky.head.distance(food) < 15:
+      food.refresh()
+      scoreboard.increase_score()
   ```
 
 
