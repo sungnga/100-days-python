@@ -1,17 +1,17 @@
 # DAY 8 - Function Parameters
 
-#### Today's lessons:
+### Today's lessons:
 - Functions with inputs
 - Arguments and parameters
 - Positional vs keyword arguments
 
-#### Functions:
+### Functions:
 - Simple function: my_function()
 - Function that allows input: my_function(input)
 - Function with more than 1 input: my_function(input1, input2, input3)
 - To get item position in a list: .index()
 
-#### Functions with inputs
+### Functions with inputs
 - Simple function:
   ```py
   def greet():
@@ -32,7 +32,7 @@
   greet_with_name("Nga")
   ```
 
-#### Positional vs keyword
+### Positional vs keyword
 - Functions with more than 1 input:
   - Separate multiple parameters with commas
 - The ***positional arguments*** match with the positional parameters
@@ -63,7 +63,7 @@
   greet_with(location="San Francisco", name="Nga")
   ```
 
-#### Exercise: Paint area calculator
+### Exercise: Paint area calculator
 ```py
 #You are painting a wall. The instructions on the paint can says that 1 can of paint can cover 5 square meters of wall. Given a random height and width of wall, calculate how many cans of paint you'll need to buy.
 # number of cans = (wall height X wall width) ÷ coverage per can.
@@ -84,7 +84,7 @@ coverage = 5
 paint_calc(height=test_h, width=test_w, cover=coverage)
 ```
 
-#### Exercise: Prime Number Checker
+### Exercise: Prime Number Checker
 - Prime numbers are numbers that can only be cleanly divided by itself and 1
 ```py
 def prime_checker(number):
@@ -107,7 +107,7 @@ prime_checker(number=n)
 ```
 
 ### Day 8 project: Caesar Cipher
-#### Part 1 - Encryption
+### Part 1 - Encryption
 ```py
 alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
@@ -142,7 +142,7 @@ def encrypt(plain_text, shift_amt):
 encrypt(plain_text=text, shift_amt=shift)
 ```
 
-#### Part 2 - Decryption
+### Part 2 - Decryption
 ```py
 alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
@@ -188,7 +188,7 @@ elif direction == "decode":
   decrypt(plain_text=text, shift_amt=shift)
 ```
 
-#### Part 3 - Refactor
+### Part 3 - Refactor
 ```py
 alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
@@ -224,7 +224,7 @@ def caesar(start_text, shift_amt, cipher_direction):
 caesar(start_text=text, shift_amt=shift, cipher_direction=direction)
 ```
 
-#### Part 4 - Improve user experience and final touches
+### Part 4 - Improve user experience and final touches
 - File: art.py
 - File: main.py
   ```py

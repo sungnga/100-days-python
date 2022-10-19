@@ -1,22 +1,22 @@
 # DAY 17 - Creating Classes
 
-#### Today's lessons:
+### Today's lessons:
 - Creating classes
-- Working with attributes, class constructors, the __init__() function
+- Working with attributes, class constructors, the **init**() function
 - Adding methods to a class
 
-#### How to create your own classes
+### How to create your own classes
 - **Class declaration:**
   - The `class` keyword, followed by the name of the class, and a colon `:`
   - Example of class declaration: `class Car:`
   - Any code after the colon `:` and is indented will be part of the class
 - The name of the class is written in Pascal case, where each word is in uppercase: `UserName`
 
-#### Working with attributes, class constructors, and the __init__() function
+### Working with attributes, class constructors, and the **init**() function
 - **To create an object from a class:**
   - Add parenthesis `()` after the class name to invoke the object constructor from a class. This will create a new object from the class
   - Then assign the new object a name, usually in snake_case
-  - `user_1 = User()` 
+  - `user_1 = User()`
 - **Attribute** - is a variable associated with an object
 - **To add an attribute to an object:**
   - Use the dot notation `.` after the object and give the attribute a name. Then assign the attribute a value
@@ -31,7 +31,7 @@
   print(user_1.username) #nga
   ```
 - **Class constructors:**
-  - A constructor is part of the class blueprint that allows us to specify what should happen when an object is being constructed. This is also known as ***initializing an object.*** When an object is being initialized, we can set variables or counters to their starting values
+  - A constructor is part of the class blueprint that allows us to specify what should happen when an object is being constructed. This is also known as **_initializing an object._** When an object is being initialized, we can set variables or counters to their starting values
 - **To create the constructor:**
   - By using the special `__init__()` function. This function is used to initialize the attributes of the object
   - Inside the `__init__()` function is where we initialize the values for the attributes
@@ -79,7 +79,7 @@
     print(user_1.followers) #0
     ```
 
-#### Adding methods to a class
+### Adding methods to a class
 - The **attributes** are the things that the object has and the **methods** are the things that the object does
 - Creating an object method inside a class is very similar to creating a regular method. The difference is the first parameter of the method is the keyword `self`. This refers to the object
   ```py
@@ -88,7 +88,7 @@
     # Class constructor
     def __init__(self, params_1):
       self.attribute = params_1
-    
+
     # Method
     def method_name(self):
       # Do something
@@ -99,7 +99,7 @@
   object_1.method_name()
   ```
 
-#### Quiz Project part 1: Creating the Question class
+### Quiz Project part 1: Creating the Question class
 - File: question_model.py
   - Task: Create a Question class with an `__init()__` method with two attributes: `text` and `answer` attribute
   ```py
@@ -109,7 +109,7 @@
       self.answer = q_answer
   ```
 
-#### Quiz Project part 2: Creating the list of question objects from the data
+### Quiz Project part 2: Creating the list of question objects from the data
 - File: main.py
   - TASK: Create question_bank
     - Write a for loop to iterate over the question_data
@@ -128,7 +128,7 @@
   print(question_bank[10].text)
   ```
 
-#### Quiz Project part 3: The QuizBrain and the next_question() method
+### Quiz Project part 3: The QuizBrain and the next_question() method
 - File: quiz_brain.py
   - The QuizBrain class:
     - attributes: question_number, questions_list
@@ -138,7 +138,7 @@
     - checking if we're the end of the quiz
   - TASK:
     - Create a class called QuizBrain
-    - Write an __init()__ method
+    - Write an **init()** method
       - Initialize the question_number to 0
       - Initialize the questions_list to an input
     - Write a next_question() method
@@ -176,7 +176,7 @@
   quiz.next_question()
   ```
 
-#### Quiz Project part 4: How to continue showing new questions
+### Quiz Project part 4: How to continue showing new questions
 - File: quiz_brain.py
   - Create method called still_has_questions()
   - Return a boolean depending on the value of question_number
@@ -214,7 +214,7 @@
     quiz.next_question()
   ```
 
-#### Quiz Project part 5: Checking answers and keeping score
+### Quiz Project part 5: Checking answers and keeping score
 - File: quiz_brain.py
   - Add a score attribute to the QuizBrain class and initialize it to 0
   - Create method called check_answer()
@@ -270,7 +270,7 @@
   print(f"Your final score was: {quiz.score}/{quiz.question_number}")
   ```
 
-#### The benefits of OOP: Use Open Trivia DB to get new questions
+### The benefits of OOP: Use Open Trivia DB to get new questions
 - Open Trivia docs: https://opentdb.com/api_config.php
 - To generate new set of questions, select the category, level of difficulty and type of answer. Then click on "Generate API URL"
 - This will generate a JSON-format list of trivia. Paste this list into trivia_data.py file

@@ -1,9 +1,9 @@
 # DAY 14 - Higher Lower Game Project
 
-- Link to the official Higher Lower Game: http://www.higherlowergame.com/ 
+- Link to the official Higher Lower Game: http://www.higherlowergame.com/
 - Files: main.py, art.py, game_data.py
 
-#### Version 1
+### Version 1
 ```py
 import random
 from replit import clear
@@ -13,7 +13,7 @@ from higher_lower_game_data import data
 def format_data(account):
   name = account["name"]
   description = account["description"]
-  follower_count = account["follower_count"] 
+  follower_count = account["follower_count"]
   country = account["country"]
   return [name, description, country, follower_count]
 
@@ -29,19 +29,19 @@ def game():
   account_b = format_data(random.choice(data))
   score = 0
   continue_game = True
-  
+
   print(logo)
-  
+
   while continue_game:
     account_b = format_data(random.choice(data))
     while account_a == account_b:
       account_b = format_data(random.choice(data))
-  
+
     print(f"Compare A: {account_a[0]}, a {account_a[1]}, from {account_a[2]}.")
     print(vs)
     print(f"Against B: {account_b[0]}, a {account_b[1]}, from {account_b[2]}.")
     guess = input("Who has more followers? Type 'A' or 'B': ").lower()
-    
+
     higher = compare_follower_count(account_a, account_b)
     if guess == higher:
       score += 1
@@ -57,7 +57,7 @@ def game():
 game()
 ```
 
-#### Verison 2
+### Version 2
 ```py
 import random
 from replit import clear
@@ -74,7 +74,7 @@ def compare_follower_count(acct_a, acct_b):
 def game():
   account_a = data[random.choice(range(len(data)))]
   account_b = data[random.choice(range(len(data)))]
-  
+
   score = 0
   continue_game = True
   print(logo)
@@ -86,7 +86,7 @@ def game():
       account_b = data[random.choice(range(len(data)))]
 
     higher = compare_follower_count(account_a, account_b)
-    
+
     print(f"Compare A: {account_a['name']}, a {account_a['description']}, from {account_a['country']}.")
     print(vs)
     print(f"Against B: {account_b['name']}, a {account_b['description']}, from {account_b['country']}.")
@@ -102,6 +102,6 @@ def game():
     else:
       continue_game = False
       print(f"Sorry, that's wrong. Final score: {score}")
-      
+
 game()
 ```

@@ -1,13 +1,13 @@
 # DAY 7: Hangman
 
-#### Today's lessons:
+### Today's lessons:
 - Flowchart programming
 - Importing modules
 
-#### Functions:
+### Functions:
 - if/in
 
-#### Import modules
+### Import modules
 - File: hangman_words.py
   - Contains `word_list` list
 - File: hangman_art.py
@@ -34,7 +34,7 @@
     chosen_word = random.choice(word_list)
     ```
 
-#### Challenge 1 - Picking a random word and checking answer
+### Challenge 1 - Picking a random word and checking answer
 ```py
 #Step 1 -> `word_list = ["aardvark", "baboon", "camel"]`
 import random
@@ -53,10 +53,10 @@ else:
   print("Wrong")
 ```
 
-#### Challenge 2 - Replacing blanks with guesses
+### Challenge 2 - Replacing blanks with guesses
 - #TODO-1: - Create an empty List called display.
-  - For each letter in the chosen_word, add a "_" to 'display'.
-  - So if the chosen_word was "apple", display should be ["_", "_", "_", "_", "_"] with 5 "_" representing each letter to guess.
+  - For each letter in the chosen*word, add a "*" to 'display'.
+  - So if the chosen*word was "apple", display should be ["*", "_", "_", "_", "_"] with 5 "\_" representing each letter to guess.
 - #TODO-2: - Loop through each position in the chosen_word;
   - If the letter at that position matches 'guess' then reveal that letter in the display at that position.
   - e.g. If the user guessed "p" and the chosen word was "apple", then display should be ["_", "p", "p", "_", "_"].
@@ -67,7 +67,7 @@ else:
     else:
       print("Wrong")
   ```
-- #TODO-3: - Print 'display' and you should see the guessed letter in the correct position and every other letter replace with "_".
+- #TODO-3: - Print 'display' and you should see the guessed letter in the correct position and every other letter replace with "\_".
   - #Hint - Don't worry about getting the user to guess the next letter. We'll tackle that in step 3.
 ```py
 #Step 2
@@ -101,7 +101,7 @@ for i in range(0, len(chosen_word)):
 print(display)
 ```
 
-#### Challenge 3 - Checking if the player has won
+### Challenge 3 - Checking if the player has won
 ```py
 #Step 3
 
@@ -137,7 +137,7 @@ while not end_of_game:
     print("You win.")
 ```
 
-#### Challenge 4 - Keeping track of the player's lives
+### Challenge 4 - Keeping track of the player's lives
 ```py
 #Step 4
 
@@ -204,7 +204,7 @@ end_of_game = False
 word_list = ["aardvark", "baboon", "camel"]
 chosen_word = random.choice(word_list)
 
-#TODO-1: - Create a variable called 'lives' to keep track of the number of lives left. 
+#TODO-1: - Create a variable called 'lives' to keep track of the number of lives left.
 #Set 'lives' to equal 6.
 lives = 6
 
@@ -225,9 +225,9 @@ while not end_of_game:
     if letter == guess:
       display[i] = letter
   print(display)
-  
+
   #TODO-2: - If guess is not a letter in the chosen_word,
-  #Then reduce 'lives' by 1. 
+  #Then reduce 'lives' by 1.
   #If lives goes down to 0 then the game should stop and it should print "You lose."
   if guess not in chosen_word:
     lives -= 1
@@ -247,13 +247,13 @@ while not end_of_game:
   print(stages[lives])
 ```
 
-#### Challenge 5 - Improving the user experience
+### Challenge 5 - Improving the user experience
 - File: hangman_art.py
 - File: hangman_words.py
 - File: main.py
   ```py
   #Step 5
-  
+
   import random
   from hangman_words import word_list
   from hangman_art import logo, stages
@@ -282,14 +282,14 @@ while not end_of_game:
     #TODO-4: - If the user has entered a letter they've already guessed, print the letter and let them know.
     if guess in display:
       print(f"You've already guessed {guess}.")
-    
+
     #Check guessed letter
     for i in range(len(chosen_word)):
       letter = chosen_word[i]
       if letter == guess:
         display[i] = letter
     # print(display)
-    
+
     #Check if user is wrong
     if guess not in chosen_word:
       #TODO-5: - If the letter is not in the chosen_word, print out the letter and let them know it's not in the word.

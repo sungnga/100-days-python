@@ -1,18 +1,17 @@
-## Day 3 - Control Flow and Logical Operations
+# Day 3 - Control Flow and Logical Operations
 
-#### Today's lessons:
+### Today's lessons:
 - Conditionals if/elif/else
 - Conditional operators
 - Logical operators
 - Code blocks
 - Scope
 
-#### Functions:
+### Functions:
 - if/else
 - if/elif/else
 
-
-#### Control flow with if/else and conditional operator
+### Control flow with if/else and conditional operator
 - if/else statement
   ```py
   if condition:
@@ -27,8 +26,8 @@
   - Less than or equal to: `<=`
   - Equal to: `==`
   - Not equal to: `!=`
-- One equal `=` means ***assignment***
-- Two equals `==` means ***check equality***
+- One equal `=` means **_assignment_**
+- Two equals `==` means **_check equality_**
 - Modulo operation: `%`
   - The result is the remainder of the division
   - `7 % 2` -> `1`
@@ -42,7 +41,7 @@
     print("This is an even number.")
   ```
 
-#### Nested if statements and elif statements
+### Nested if statements and elif statements
 - Nested if/else statement
   ```py
   if condition:
@@ -66,7 +65,7 @@
     do this
   ```
 
-#### Multiple if statements in succession
+### Multiple if statements in succession
 - Multiple if
   ```py
   if condition1:
@@ -79,7 +78,7 @@
 - With if/elif/else statement, only one get executed
 - With multiple if statements, multiple things will be executed if multiple conditions are met
 
-#### Logical operators
+### Logical operators
 - `and` - A and B
   - Both A and B must be true to be evaluated to `True`
 - `or` - A or B
@@ -87,40 +86,40 @@
 - `not` - not E
   - Reverses the condition
 
-#### Exercise: Rollercoaster Ticket
+### Exercise: Rollercoaster Ticket
 - NOTE: line indentation matters a lot!!
-```py
-print("Welcome to the rollercoaster!")
-height = int(input("What is your height in cm? "))
-bill = 0
+  ```py
+  print("Welcome to the rollercoaster!")
+  height = int(input("What is your height in cm? "))
+  bill = 0
 
-if height >= 120:
-  print("You can ride the rollercoaster!")
-  age = int(input("What is your age? "))
-  if age < 12:
-    bill = 5
-    print("Child tickets are $5.")
-  elif age <= 18:
-    bill = 7
-    print("Youth tickets are $7.")
-  # midlife crisis
-  elif age >= 45 and age <= 55:
-    print("Everything is going to be ok. Have a free ride on us!")
+  if height >= 120:
+    print("You can ride the rollercoaster!")
+    age = int(input("What is your age? "))
+    if age < 12:
+      bill = 5
+      print("Child tickets are $5.")
+    elif age <= 18:
+      bill = 7
+      print("Youth tickets are $7.")
+    # midlife crisis
+    elif age >= 45 and age <= 55:
+      print("Everything is going to be ok. Have a free ride on us!")
+    else:
+      bill = 12
+      print("Adult tickets are $12.")
+
+    # this if statement applies to everyone regardless of their age
+    wants_photo = input("Do you want a photo taken? Y or N. ")
+    if wants_photo == "Y":
+      bill +=3
+
+    print(f"Your final bill is ${bill}.")
   else:
-    bill = 12
-    print("Adult tickets are $12.")
+    print("Sorry you cannot ride the rollercoaster.")
+  ```
 
-  # this if statement applies to everyone regardless of their age
-  wants_photo = input("Do you want a photo taken? Y or N. ")
-  if wants_photo == "Y":
-    bill +=3
-
-  print(f"Your final bill is ${bill}.")
-else:
-  print("Sorry you cannot ride the rollercoaster.")
-```
-
-#### Multi-block strings
+### Multi-block strings
 - To print multiple lines of string, use a pair of 3-single quotes
   ```py
   print('''

@@ -1,12 +1,12 @@
 # DAY 19 - Instances, State, and Higher Order Functions
 
-#### Today's lessons:
+### Today's lessons:
 - More Turtle graphics
 - Higher order functions
 - Event listeners
 - Object state and instances
 
-#### Python higher order functions & event listeners
+### Python higher order functions & event listeners
 - Event listeners are code that listen for what the user does. For example, a user might press a certain key or click on something to trigger a particular event
   ```py
   from turtle import Turtle, Screen
@@ -66,7 +66,7 @@
   print(result)  #5
   ```
 
-#### Challenge: Make an Etch-A-Sketch app
+### Challenge: Make an Etch-A-Sketch app
 ```py
 # W = Forwards
 # S = Backwards
@@ -81,25 +81,25 @@ screen = Screen()
 
 
 def forward():
-	tom.forward(10)
+  tom.forward(10)
 
 
 def backward():
-	tom.backward(10)
+  tom.backward(10)
 
 
 def turn_left():
-	tom.left(10)
-	# tom.forward(3)
+  tom.left(10)
+  # tom.forward(3)
 
 
 def turn_right():
-	tom.right(10)
-	# tom.forward(3)
+  tom.right(10)
+  # tom.forward(3)
 
 
 def clear():
-	tom.reset()
+  tom.reset()
 
 
 screen.listen()
@@ -111,7 +111,7 @@ screen.onkey(key='c', fun=clear)
 screen.exitonclick()
 ```
 
-#### Object state and instances
+### Object state and instances
 - Even though multiple objects can be constructed from the same class, they function completely independent of each other. Each object is also known as an **instance**
 - Each object could have different attributes and perform different methods. In programming, is known as their **state**. You can have separate versions of the same object, each with a different state, and acting independently from each other
 
@@ -154,6 +154,6 @@ while is_race_on:
 
     random_distance = random.randint(0, 10)
     turtle.forward(random_distance)
-		
+
 screen.exitonclick()
 ```

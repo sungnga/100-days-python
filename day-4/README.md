@@ -1,15 +1,15 @@
-## Day 4 - Randomization and Lists
+# Day 4 - Randomization and Lists
 
-#### Today's lessons:
+### Today's lessons:
 - Randomization
 - Error handling
 - Module
 - List
 
-#### Functions:
+### Functions:
 - .split()
 
-#### Random module
+### Random module
 - The Python team has built the random module for us to use because generating random numbers a frequent task in programming. We need to import the module in order to use it
   - `import random`
 - Example:
@@ -18,17 +18,17 @@
 
   # random whole number btwn 1 and 10, inclusively
   random_int = random.randint(1, 10)
-  # random float number btwn .0000.. to 4.9999.. 
+  # random float number btwn .0000.. to 4.9999..
   random_float = random.random() * 5
 
   print(random_float)
   ```
 
-#### Our own module
+### Our own module
 - A module is a piece of code that performs a specific functionality. A module can be used many times through out an application
 - To use a module, simply import it into the file we want to use it using the `import` keyword
 
-#### Lists
+### Lists
 - A list is a data structure. A data structure is a way of storing data in Python
 - A list starts with square brackets `[item1, item2]` and the elements it holds
 - The elements in a list is indexed. To access an element, simply add a pair of square bracket next to the name of the list and reference the element's index number
@@ -44,7 +44,7 @@
 - The `.append()` method adds an item to the end of a list
   - `fruits.append("peach")` => `fruits = ["apple", "cherry", "mango", "pineapple", "peach"]`
 
-#### Exercise: Who's Paying
+### Exercise: Who's Paying
 ```py
 import random
 
@@ -54,7 +54,7 @@ random_choice = random.randint(0, len(names_list) - 1)
 print(names_list[random_choice] + " is going to buy the meal today.")
 ```
 
-#### IndexErrors, working with nested lists
+### IndexErrors, working with nested lists
 - IndexError occurs because list index is out of range. This is a common error when we try to access the last item on a list by its index and forgot to subtract 1. Remember, the index position starts at 0
 - To access items in a nested list, chain on square brackets `list_name[index][index]`
   ```py
@@ -66,7 +66,7 @@ print(names_list[random_choice] + " is going to buy the meal today.")
   print(dirty_dozen[1][1]) # "Kale"
   ```
 
-#### Exercise: Treasure Map
+### Exercise: Treasure Map
 row1 = ["⬜️","⬜️","⬜️"]
 row2 = ["⬜️","⬜️","⬜️"]
 row3 = ["⬜️","⬜️","⬜️"]

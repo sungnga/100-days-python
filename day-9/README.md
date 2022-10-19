@@ -1,13 +1,10 @@
 # DAY 9 - Dictionaries and nesting
 
-#### Today's lessons:
+### Today's lessons:
 - Dictionaries
 - Nesting lists
 
-#### Functions:
-
-
-#### Dictionary
+### Dictionary
 - Python dictionary is very similar to real life dictionary
 - A dictionary comes with key-value pair. The key is the word and the value is the definition associated with that word
 - **Creating a dictionary:**
@@ -45,7 +42,7 @@
 - **Edit an item in a dictionary:**
   - Editing an item is similar to adding an item to a dictionary
   - Fetch the item by its key and assigning it to a new value
-    - `dictionary_name[key] = new_value` 
+    - `dictionary_name[key] = new_value`
   - The program looks into the dictionary and tries to find the item by its key. If the item exists, it'll replace the value data. If the item doesn't exist, it'll create the item
 - **Loop through a dictionary:**
   - Looping through a dictionary will return the key, but we can use that key to retrieve its value from the dictionary
@@ -55,12 +52,12 @@
     print(dictionary_name[key]) #Retrieving the value
   ```
 
-#### Exercise: Grading program
+### Exercise: Grading program
 ```py
 student_scores = {
   "Harry": 81,
   "Ron": 78,
-  "Hermione": 99, 
+  "Hermione": 99,
   "Draco": 74,
   "Neville": 62,
 }
@@ -82,8 +79,8 @@ for student in student_scores:
 print(student_grades)
 ```
 
-#### Nesting lists and dictionaries
-- Nesting a List and a Dictionary in a dictionary 
+### Nesting lists and dictionaries
+- Nesting a List and a Dictionary in a dictionary
   ```py
   {
     Key: [List],
@@ -111,7 +108,7 @@ print(student_grades)
   }]
   ```
 
-#### Exercise: Dictionary in list
+### Exercise: Dictionary in list
 ```py
 travel_log = [
 {
@@ -139,35 +136,35 @@ print(travel_log)
 ### Day 9 project: The Secret Auction
 File: art.py
 File: main.py
-  ```py
-  from replit import clear
-  #HINT: You can call clear() to clear the output in the console.
+```py
+from replit import clear
+#HINT: You can call clear() to clear the output in the console.
 
-  from art import logo
-  print(logo)
+from art import logo
+print(logo)
 
-  bids = []
-  bidding_finished = False
+bids = []
+bidding_finished = False
 
-  def find_highest_bidder(bidding_record):
-    highest_bid = 0
-    winner = ""
-    for bid in bidding_record:
-      if bid["bidder_amt"] > highest_bid:
-        highest_bid = bid["bidder_amt"]
-        winner = bid["bidder_name"]
-    print(f"The winner is {winner} with a bid of ${highest_bid}.")
-    
-  while not bidding_finished:
-    name = input("What is your name?: ")
-    bidding_amt = int(input("What's your bid?: $"))
-    bidder = {"bidder_name": name,
-    "bidder_amt": bidding_amt}
-    bids.append(bidder)
-    
-    more_bidders = input("Are there any other bidders? Type 'yes' or 'no'.\n")
-    clear()
-    if more_bidders == "no":
-      bidding_finished = True
-      find_highest_bidder(bids)
-  ```
+def find_highest_bidder(bidding_record):
+  highest_bid = 0
+  winner = ""
+  for bid in bidding_record:
+    if bid["bidder_amt"] > highest_bid:
+      highest_bid = bid["bidder_amt"]
+      winner = bid["bidder_name"]
+  print(f"The winner is {winner} with a bid of ${highest_bid}.")
+
+while not bidding_finished:
+  name = input("What is your name?: ")
+  bidding_amt = int(input("What's your bid?: $"))
+  bidder = {"bidder_name": name,
+  "bidder_amt": bidding_amt}
+  bids.append(bidder)
+
+  more_bidders = input("Are there any other bidders? Type 'yes' or 'no'.\n")
+  clear()
+  if more_bidders == "no":
+    bidding_finished = True
+    find_highest_bidder(bids)
+```

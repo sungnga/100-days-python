@@ -1,6 +1,6 @@
 # DAY 13 - Debugging
 
-#### Today's lessons: How to fix bugs
+### Today's lessons: How to fix bugs
 - Step 1: Describe the problem
 - Step 2: Reproduce the bug
 - Step 3: Play computer
@@ -8,10 +8,10 @@
 - Step 5: Print() statement is your friend
 - Step 6: Use a debugger
 
-#### Links:
+### Links:
 - Python Tutor - a debugger tool: https://pythontutor.com/visualize.html#mode=edit
 
-#### Step 1: Describe the problem
+### Step 1: Describe the problem
 ```py
 def my_function():
   #The range() function DOES NOT include the upper bound number
@@ -22,7 +22,7 @@ def my_function():
 my_function()
 ```
 
-#### Step 2: Reproduce the bug
+### Step 2: Reproduce the bug
 ```py
 from random import randint
 
@@ -32,9 +32,9 @@ dice_num = randint(0, 5) #Bug fixed: shift the range
 print(dice_imgs[dice_num])
 ```
 
-#### Step 3: Play computer and evaluate each line
+### Step 3: Play computer and evaluate each line
 ```py
-#Bug: if input year is 1994, nothing prints out. 
+#Bug: if input year is 1994, nothing prints out.
 #Because both if statements make 1994(input year) equal to False
 year = int(input("What's your year of birth?: "))
 #To fix bug: set one of the if statements to include 1994
@@ -44,7 +44,7 @@ elif year > 1994:
   print("You are a Gen Z.")
 ```
 
-#### Step 4: Fix the errors and watch for red underlines
+### Step 4: Fix the errors and watch for red underlines
 - When the code editor or the console is giving you an error, fix the errors before continue
 - The editor will highlight the error with red underline. Hover over it to read the error message
 - If the error produced in the console, one way to solve the error is copy the entire error message and paste it into Google. Most likely other programmers have encountered the same issue
@@ -79,7 +79,7 @@ elif year > 1994:
   print(f"You can drive at age {age}.")
   ```
 
-#### Step 5: Squash bugs with a print() statement
+### Step 5: Squash bugs with a print() statement
 - Code with bugs
   ```py
   pages = 0
@@ -103,12 +103,12 @@ elif year > 1994:
   print(total_words)
   ```
 
-#### Step 6: Use a debugger
+### Step 6: Use a debugger
 - Use a debugger tool like Python Tutor to step through your code line by line
 - Python Tutor link: https://pythontutor.com/visualize.html#mode=edit
   - Add a break point by clicking on the line of code to examine that particular line of code
 
-#### Final debugging tips
+### Final debugging tips
 - Step 7: Take a break
   - Go do something else
   - Take a nap
@@ -119,7 +119,7 @@ elif year > 1994:
   - Confirm that the code is doing what you want it to do. Don't wait for bugs to pile up
 - Step 10: Ask stackOverflow
 
-#### Exercise: Debugging Odd or Even
+### Exercise: Debugging Odd or Even
 - Starter code with bugs
   ```py
   number = int(input("Which number do you want to check?: "))
@@ -140,7 +140,7 @@ elif year > 1994:
     print("This is an odd number.")
   ```
 
-#### Exercise: Debugging Leap Year
+### Exercise: Debugging Leap Year
 - Starter code with bugs
   ```py
   year = input("Which year do you want to check?: ")
@@ -173,7 +173,7 @@ elif year > 1994:
     print("Not leap year.")
   ```
 
-#### Exercise: Debugging FizzBuzz
+### Exercise: Debugging FizzBuzz
 - Starter code with bugs
   ```py
   for number in range(1, 101):
@@ -205,5 +205,3 @@ elif year > 1994:
     else:
       print([number])
   ```
-
-

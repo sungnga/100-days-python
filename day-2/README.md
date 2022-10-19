@@ -1,18 +1,18 @@
-## Day 2 - Data Types and Type Manipulation
+# Day 2 - Data Types and Type Manipulation
 
-#### Today's lessons:
+### Today's lessons:
 - Data types
 - Converting types
 - f-strings
 - Mathematical operations
 - Project: Tip Calculator
 
-#### Functions:
+### Functions:
 - type()
 - str(), float(), int(), round()
 - f" {variable}"
 
-#### Primitive data types
+### Primitive data types
 - **String**
   - Strings are surrounded by single or double quotation
   - Subscript: is a method of pulling a particular element out of a string. `"Hello"[4]`
@@ -26,7 +26,7 @@
 - **Boolean**
   - Can only have two possible values: `True` or `False`
 
-#### Type error, type checking and type conversion
+### Type error, type checking and type conversion
 - `type()` is a type-check function used to check for data type
 - Type conversion or type casting is converting one data type to another
   - `str(123)` -> `"123"`
@@ -44,7 +44,7 @@
   print("Your name has " + new_num_char + " characters.")
   ```
 
-#### Mathematical operations
+### Mathematical operations
 - Addition: `+`
 - Subtraction: `-`
 - Multiplication: `*`
@@ -52,6 +52,7 @@
 - Exponent: `**`
 - The order of operations matters here: PEMDAS. P is parenthesis
 - Exercise: calculate BMI
+
   ```py
   height = input("Enter your height in m: ")
   weight = input("Enter your weight in kg: ")
@@ -62,13 +63,13 @@
   print(bmi_as_int)
   ```
 
-#### Number manipulation and F strings
+### Number manipulation and F strings
 - `round(arg1, arg2)` is a function that rounds a number to a whole number or to a specified number of decimal places
   - `round(2.6667, 2)` -> `2.67`
-- `//` is a floor division where it chops off the remaining decimal. The data type is an ***integer***
-- When doing a ***division*** operation, the data type of the result is a ***float***
-- The data type of the ***value*** from the `input()` function is a ***string***
-- A shorthand operation to manipulate a value based on its previous value: +=, -=, *=, /=
+- `//` is a floor division where it chops off the remaining decimal. The data type is an **_integer_**
+- When doing a **_division_** operation, the data type of the result is a **_float_**
+- The data type of the **_value_** from the `input()` function is a **_string_**
+- A shorthand operation to manipulate a value based on its previous value: +=, -=, \*=, /=
 - f-string is a handy shortcut of inserting different data types into a string
   - Write the letter `f` in front of a double or single quotation and then put the variable inside a pair of curly braces
   ```py
@@ -80,7 +81,7 @@
   # Your score is 0, your height is 1.8, your are winning is True
   ```
 
-#### Exercise: Life in weeks
+### Exercise: Life in weeks
 ```py
 age = input("What is your age? ")
 

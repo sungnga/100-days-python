@@ -1,15 +1,15 @@
 # DAY 18 - Turtle Graphics, Tuples, and Importing Modules
 
-#### Today's lessons:
+### Today's lessons:
 - Turtle graphics - working with turtle module
 - Tuples
-- Importing modules, installing packages, and working with aliases 
+- Importing modules, installing packages, and working with aliases
 
-#### Understanding Turtle graphics and how to use the documentation
+### Understanding Turtle graphics and how to use the documentation
 - Turtle graphics docs: https://docs.python.org/3/library/turtle.html
 - The turtle module comes with the Python standard library. No need to install
 
-#### Turtle challenge 1 - draw a square
+### Turtle challenge 1 - draw a square
 ```py
 from turtle import Turtle, Screen
 
@@ -34,7 +34,7 @@ screen = Screen()
 screen.exitonclick()
 ```
 
-#### Importing modules, installing packages, and working with aliases
+### Importing modules, installing packages, and working with aliases
 - **Basic import**
   - `import <module_name>`
   - Example: `import turtle`
@@ -78,7 +78,7 @@ screen.exitonclick()
   - Click on the "+" button to install a new Python package
   - Search for the package name and then click on the Install Package button to install it
 
-#### Turtle challenge 2 - draw a dashed line
+### Turtle challenge 2 - draw a dashed line
 ```py
 from turtle import Turtle, Screen
 
@@ -96,7 +96,7 @@ screen = Screen()
 screen.exitonclick()
 ```
 
-#### Turtle challenge 3 - drawing different shapes
+### Turtle challenge 3 - drawing different shapes
 ```py
 from turtle import Turtle, Screen, colormode
 from random import randrange
@@ -130,7 +130,7 @@ screen = Screen()
 screen.exitonclick()
 ```
 
-#### Turtle challenge 4 - generate a random walk
+### Turtle challenge 4 - generate a random walk
 ```py
 from turtle import Turtle, Screen, colormode
 import random
@@ -159,7 +159,7 @@ screen = Screen()
 screen.exitonclick()
 ```
 
-#### Python tuples and how to generate random RGB colors
+### Python tuples and how to generate random RGB colors
 - A tuple is a data type in Python
 - Denoted by a pair of parenthesis: `(item1, item2, item3)`
 - Similar to a Python list, each item in a tuple is **ordered**
@@ -187,16 +187,16 @@ screen.exitonclick()
   colormode(255)
 
   def change_color():
-	r = random.randint(0, 255)
-	g = random.randint(0, 255)
-	b = random.randint(0, 255)
-	random_color = (r, g, b)
-	return random_color
+  r = random.randint(0, 255)
+  g = random.randint(0, 255)
+  b = random.randint(0, 255)
+  random_color = (r, g, b)
+  return random_color
 
   turtle.color(change_color())
   ```
 
-#### Turtle challenge 5 - draw a spirograph
+### Turtle challenge 5 - draw a spirograph
 ```py
 from turtle import Turtle, Screen, colormode
 import random
@@ -225,7 +225,7 @@ screen = Screen()
 screen.exitonclick()
 ```
 
-#### The Hirst Painting project part 1 - how to extract RGB values from images
+### The Hirst Painting project part 1 - how to extract RGB values from images
 - colorgram.py docs: https://pypi.org/project/colorgram.py/
 - **Install the colorgram.py package**
   - In PyCharm, type `CMND + ,` to open the Preferences dialogue window
@@ -233,8 +233,10 @@ screen.exitonclick()
   - Click on the "+" button to install a new Python package
   - Search for colorgram.py and click on the Install Package button
 - File: main.py
+
   - Import the colorgram package
   - Find a Hirst painting on the web and import the image file to the project folder
+
   ```py
   import colorgram
 
@@ -248,7 +250,7 @@ screen.exitonclick()
   print(color_list)
   ```
 
-####  The Hirst Painting project part 2 - drawing the dots
+### The Hirst Painting project part 2 - drawing the dots
 - After we get the list of colors and printed to the console, copy and save the color list to a variable. Now we can just comment out the colorgram color extraction
 - Create a Hirst dot painting of 10X10 dot grid. Each dot color is randomly chosen from the list of colors
 - File: main.py

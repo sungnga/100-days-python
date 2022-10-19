@@ -1,12 +1,12 @@
-## DAY 6 - Functions and While Loop
+# DAY 6 - Functions and While Loop
 
-#### Today's lessons:
+### Today's lessons:
 - Functions
 
-#### Functions:
+### Functions:
 - while loop
 
-#### Defining and calling functions
+### Defining and calling functions
 - Creating our own function is a two-step process:
   - First, we need to define the function using the `def` keyword and give the function a name. We know that we are defining a function by adding the `()` after the function name
   - Second, call or invoke the function to use it. We do this by adding the parenthesis `()` after the function name
@@ -16,15 +16,15 @@
     #Do this
     #Then do this
     #Finally do this
-    
+
   # Invoke the function
   my_function()
   ```
 
-#### Indentation
+### Indentation
 - When defining a function, every line of that is indented after the definition will be inside the function
 
-#### while loops
+### while loops
 - The while loop is the loop that will continue going while a particular condition is true
 ```py
 while something_is_true:

@@ -1,14 +1,14 @@
-## Day 5 - For Loops
+# Day 5 - For Loops
 
-#### Today's lessons:
+### Today's lessons:
 - For loops
 - The range() function
 - Modulo operation
 
-#### Functions:
+### Functions:
 - range()
 
-#### For loop
+### For loop
 ```py
 for item in list_of_items:
   #Do something to each item
@@ -22,7 +22,7 @@ for item in list_of_items:
     print(fruit + " Pie") # Apple Pie
   ```
 
-#### Exercise: Average Height
+### Exercise: Average Height
 ```py
 # Write a program that calculates the avg student height from a list of heights
 student_heights = input("Input a list of student heights ").split() # array of strings
@@ -39,10 +39,10 @@ avg_height = round(total_height / number_of_students)
 print(avg_height)
 ```
 
-#### Exercise: High Score
+### Exercise: High Score
 ```py
 # Write a program that calculates the highest score from a list of scores
-student_scores = input("Input a list of student scores ").split() # array of strings 
+student_scores = input("Input a list of student scores ").split() # array of strings
 for n in range(0, len(student_scores)):
   student_scores[n] = int(student_scores[n]) # array of integers
 
@@ -53,13 +53,13 @@ for score in student_scores:
 print(f"The highest score in the class is: {highest_score}")
 ```
 
-#### for loops, the range() function
+### for loops, the range() function
 - The range() function generates a range of numbers
 - for loop with range
   - NOTE: The range function does not include the stop number. For example, if a range is between 1 and 10, 10 is not included
   - Has the option to pass in a 3rd argument for step size if you want to change the default step size of 1
   ```py
-  for item in range(start, stop[, step],): # step arg is optional. By default, it increments by 1 
+  for item in range(start, stop[, step],): # step arg is optional. By default, it increments by 1
     print(item)
   ```
 - Example:
@@ -71,7 +71,7 @@ print(f"The highest score in the class is: {highest_score}")
   print(total)
   ```
 
-#### Exercise: Add Even Numbers
+### Exercise: Add Even Numbers
 ```py
 # Write a program that calculates the sum of all the even numbers from 1 to 100, including 1 and 100
 total = 0
@@ -81,7 +81,7 @@ for num in range(2, 101, 2):
 print(total)
 ```
 
-#### Exercise: The FizzBuzz Job Interview Question
+### Exercise: The FizzBuzz Job Interview Question
 ```py
 # Counting from number 1 to 100, write a program that prints "Fizz" if the number is divisible by 3, prints "Buzz" if divisible by 5, and prints "FizzBuzz" if divisible by 15
 for num in range(1, 101):
@@ -103,7 +103,7 @@ numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
 
 print("Welcome to the PyPassword Generator!")
-nr_letters= int(input("How many letters would you like in your password?\n")) 
+nr_letters= int(input("How many letters would you like in your password?\n"))
 nr_symbols = int(input(f"How many symbols would you like?\n"))
 nr_numbers = int(input(f"How many numbers would you like?\n"))
 
@@ -125,7 +125,7 @@ for num in range(1, nr_numbers + 1):
   password += numbers[random.randint(0, len(numbers) - 1)]
   # password += random.choice(numbers)
 
-random.shuffle(password) 
+random.shuffle(password)
 shuffled_password = ''.join(password)
 print(f"Your password is: {shuffled_password}")
 ```
