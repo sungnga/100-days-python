@@ -199,7 +199,6 @@ while game_is_on:
   screen.onkey(fun=snaky.down, key='Down')
   screen.onkey(fun=snaky.left, key='Left')
   screen.onkey(fun=snaky.right, key='Right')
-  screen.onkey(fun=snaky.stop, key='space')
 
   # Move the snake
   game_is_on = True
@@ -300,7 +299,6 @@ while game_is_on:
   screen.onkey(fun=snaky.down, key='Down')
   screen.onkey(fun=snaky.left, key='Left')
   screen.onkey(fun=snaky.right, key='Right')
-  screen.onkey(fun=snaky.stop, key='space')
 
   # Move the snake
   game_is_on = True
