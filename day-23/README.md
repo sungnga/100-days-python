@@ -35,15 +35,24 @@
   screen.setup(width=600, height=600)
   screen.tracer(0)
 
+
+  def create_cars():
+    for _ in range(30):
+      random_x = random.randint(300, 1000)
+      random_y = random.randint(-270, 270)
+      cars.append(CarManager(random_x, random_y))
+
+
   cars = []
-  for i in range(5):
-    cars.append(CarManager())
+  create_cars()
 
   game_is_on = True
   while game_is_on:
-    time.sleep(.1)
+    time.sleep(.2)
     screen.update()
-    random.choice(cars).move()
+    for car in cars:
+      car.move()
+      car.restart()
 
   screen.exitonclick()
   ```
@@ -58,17 +67,20 @@
 
 
   class CarManager(Turtle):
-    def __init__(self):
+    def __init__(self, x, y):
       super().__init__()
-      self.create_car()
-
-    def create_car(self):
       self.shape('square')
       self.turtlesize(stretch_wid=1, stretch_len=2)
       self.color(random.choice(COLORS))
       self.penup()
-      self.goto(300, random.randint(-290, 290))
+      self.goto(x, y)
 
     def move(self):
-      self.backward(MOVE_INCREMENT)
+      new_x = self.xcor() - MOVE_INCREMENT
+      self.goto(new_x, self.ycor())
+
+    def restart(self):
+      if self.xcor() < -300:
+        self.setx(300)
+        self.sety(random.randint(-270, 270))
   ```
