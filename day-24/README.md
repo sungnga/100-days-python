@@ -16,7 +16,7 @@
 - Let's add the functionality to keep track of high score
 - File: scoreboard.py
   - In the Scoreboard class, add a high_score attribute and set it to 0
-  - Replace the game_over method with a new method called reset. Instead of writing "GAME OVER", we're going to reset the scoreboard and save the high score in the high_score attribute
+  - Replace the game_over method with a new method called reset_scoreboard. Instead of writing "GAME OVER", we're going to reset the scoreboard and save the high score in the high_score attribute
   - In the update_scoreboard() method, call the self.clear() method because we've saved the high score in the high_score attribute. Lastly, display the high_score value
   ```py
   from turtle import Turtle
@@ -40,7 +40,7 @@
       self.clear()
       self.write(f"Score: {self.score} High Score: {self.high_score}", align=ALIGNMENT, font=FONT)
 
-    def reset(self):
+    def reset_scoreboard(self):
       if self.score > self.high_score:
         self.high_score = self.score
       self.score = 0
@@ -135,7 +135,7 @@
     self.head = self.segments[0]
   ```
 - File: main.py
-  - When the snake collides with the wall or with the tail, we want to call the reset method on the scoreboard to reset th scoreboard and call the reset_snake method on snaky to reset the snake object
+  - When the snake collides with the wall or with the tail, we want to call the reset_scoreboard method on the scoreboard to reset th scoreboard and call the reset_snake method on snaky to reset the snake object
   ```py
   game_is_on = True
   while game_is_on:
@@ -151,14 +151,14 @@
 
     # Detect collision with wall
     if snaky.head.xcor() > 280 or snaky.head.xcor() < -280 or snaky.head.ycor() > 280 or snaky.head.ycor() < -280:
-      scoreboard.reset()
+      scoreboard.reset_scoreboard()
       snaky.reset_snake()
 
     # Detect collision with tail
     for segment in snaky.segments[1:]:
       # If head collides with any segment in the tail
       if snaky.head.distance(segment) < 10:
-        scoreboard.reset()
+        scoreboard.reset_scoreboard()
         snaky.reset_snake()
   ```
 - Our Snake Game is working and it keeps track of the high score. However, when we manually stop the game and restart again, our high score is set to 0 again. We currently don't have a way to save our high score and retrieve it when we restart the game
@@ -192,7 +192,9 @@
     - Append - The "append" mode, will append new content to the end of the file and will not overwrite existing content
 - The **.write()** method writes contents to a specified file and depending on the ****mode**** of the file, it can overwrite the existing contents or append the new contents to the file
 
-### Read ans write the high score to a file in Snake Game
+### Read and write the high score to a file in Snake Game
+- In the Snake Game project directory, create a text file called data.txt. In it, contains a value of 0
+- In the Scoreboard class, instead of using a hard-coded value for the high_score, we want to read and write/update the high score from the text file
 
 
 ### Understand relative and absolute file paths
