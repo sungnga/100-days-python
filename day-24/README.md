@@ -190,12 +190,52 @@
     - Read - By default, the open file mode is "read"
     - Write - In "write" mode, if the file doesn't exist, it will create one. If the file exists and there's content in it, it will overwrite the existing content
     - Append - The "append" mode, will append new content to the end of the file and will not overwrite existing content
+  ```py
+  with open("my_file.txt", mode="a") as file:
+    file.write("\nNew text.")
+  ```
 - The **.write()** method writes contents to a specified file and depending on the ****mode**** of the file, it can overwrite the existing contents or append the new contents to the file
 
 ### Read and write the high score to a file in Snake Game
-- In the Snake Game project directory, create a text file called data.txt. In it, contains a value of 0
+- In the Snake Game project directory, create a text file called high_score.txt. In it, contains a value of 0
 - In the Scoreboard class, instead of using a hard-coded value for the high_score, we want to read and write/update the high score from the text file
+- In the reset_scoreboard method, if the score value is greater than the high_score, we want to update the high_score attribute as well as the high_score in the high_score.txt file
+- File: scoreboard.py
+  ```py
+  from turtle import Turtle
 
+  ALIGNMENT = 'center'
+  FONT = ('Courier', 20, 'normal')
+
+
+  class Scoreboard(Turtle):
+    def __init__(self):
+      super().__init__()
+      self.score = 0
+      with open("high_score.txt") as file:
+        self.high_score = int(file.read())
+      self.color('white')
+      self.penup()
+      self.goto(0, 270)
+      self.hideturtle()
+      self.update_scoreboard()
+
+    def update_scoreboard(self):
+      self.clear()
+      self.write(f"Score: {self.score} High Score: {self.high_score}", align=ALIGNMENT, font=FONT)
+
+    def reset_scoreboard(self):
+      if self.score > self.high_score:
+        self.high_score = self.score
+        with open("high_score.txt", mode="w") as file:
+          file.write(f"{self.high_score}")
+      self.score = 0
+      self.update_scoreboard()
+
+    def increase_score(self):
+      self.score += 1
+      self.update_scoreboard()
+  ```
 
 ### Understand relative and absolute file paths
 

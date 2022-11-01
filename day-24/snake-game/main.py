@@ -24,7 +24,7 @@ screen.onkey(fun=snaky.right, key='Right')
 game_is_on = True
 while game_is_on:
   screen.update()
-  time.sleep(.4)
+  time.sleep(.2)
   snaky.move()
 
   # Detect collision with food
@@ -35,15 +35,14 @@ while game_is_on:
 
   # Detect collision with wall
   if snaky.head.xcor() > 280 or snaky.head.xcor() < -280 or snaky.head.ycor() > 280 or snaky.head.ycor() < -280:
-    game_is_on = False
-    scoreboard.game_over()
+    scoreboard.reset_scoreboard()
+    snaky.reset_snake()
 
   # Detect collision with tail
   for segment in snaky.segments[1:]:
     # If head collides with any segment in the tail
     if snaky.head.distance(segment) < 10:
-      # Trigger game_over
-      game_is_on = False
-      scoreboard.game_over()
+      scoreboard.reset_scoreboard()
+      snaky.reset_snake()
 
 screen.exitonclick()
