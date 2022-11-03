@@ -3,21 +3,22 @@
 ### Today's lessons:
 - File I/O reading and writing to local files
 - File directories
+- Absolute vs relative path
 - Reading and writing to CSV
 
 ### Functions:
 - open()
 - read()
+- readlines()
 - close()
 - write()
 - strip()
 - replace()
 
-
 ### Add a high score to the Snake Game
 - The Snake Game project from day 20-21
 - Let's add the functionality to keep track of high score
-- File: scoreboard.py
+- File: snake_game/scoreboard.py
   - In the Scoreboard class, add a high_score attribute and set it to 0
   - Replace the game_over method with a new method called reset_scoreboard. Instead of writing "GAME OVER", we're going to reset the scoreboard and save the high score in the high_score attribute
   - In the update_scoreboard() method, call the self.clear() method because we've saved the high score in the high_score attribute. Lastly, display the high_score value
@@ -57,7 +58,7 @@
       self.score += 1
       self.update_scoreboard()
   ```
-- File: snake.py
+- File: snake_game/snake.py
   - Currently, when the snake collides with the wall or its tail, the scoreboard is reset but the snake segments have gone off the screen. We also need to reset the snake for the next round
   - In the Snake class, write a reset_snake() method to reset the snake segments. We perform the following operations:
     - First, call the .clear() method to clear the items in the segments list
@@ -137,7 +138,7 @@
     self.create_snake()
     self.head = self.segments[0]
   ```
-- File: main.py
+- File: snake_game/main.py
   - When the snake collides with the wall or with the tail, we want to call the reset_scoreboard method on the scoreboard to reset th scoreboard and call the reset_snake method on snaky to reset the snake object
   ```py
   game_is_on = True
@@ -203,7 +204,7 @@
 - In the Snake Game project directory, create a text file called high_score.txt. In it, contains a value of 0
 - In the Scoreboard class, instead of using a hard-coded value for the high_score, we want to read and write/update the high score from the text file
 - In the reset_scoreboard method, if the score value is greater than the high_score, we want to update the high_score attribute as well as the high_score in the high_score.txt file
-- File: scoreboard.py
+- File: snake_game/scoreboard.py
   ```py
   from turtle import Turtle
 
@@ -246,4 +247,24 @@
 - Relative file path - starts from the current working directory to the file of interest
 
 ### Day 24 project: Mail Merge
+- File: mail-merge/main.py
+  ```py
+  # TODO: Create a letter using starting_letter.txt
+  # for each name in invited_names.txt
+  # Replace the [name] placeholder with the actual name.
+  # Save the letters in the folder "ReadyToSend".
 
+  # Hint1: This method will help you: https://www.w3schools.com/python/ref_file_readlines.asp
+  # Hint2: This method will also help you: https://www.w3schools.com/python/ref_string_replace.asp
+  # Hint3: THis method will help you: https://www.w3schools.com/python/ref_string_strip.asp
+
+
+  with open("./Input/Names/invited_names.txt") as names:
+    for name in names:
+      final_name = name.strip()
+      with open("./Input/Letters/starting_letter.txt") as file:
+        starting_letter = file.read()
+        finished_letter = starting_letter.replace("[name]", f"{final_name}")
+      with open(f"./Output/ReadyToSend/letter_for_{final_name}.txt", mode="w") as file:
+        file.write(finished_letter)
+  ```
