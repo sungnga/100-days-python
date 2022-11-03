@@ -10,6 +10,9 @@
 - read()
 - close()
 - write()
+- strip()
+- replace()
+
 
 ### Add a high score to the Snake Game
 - The Snake Game project from day 20-21
@@ -238,7 +241,9 @@
   ```
 
 ### Understand relative and absolute file paths
-
+- A ***path*** is a way for the computer to navigate to the file or folder of interest
+- Absolute file path - always starts off relative to the root of the computer
+- Relative file path - starts from the current working directory to the file of interest
 
 ### Day 24 project: Mail Merge
 
