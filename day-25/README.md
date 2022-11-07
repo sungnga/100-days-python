@@ -6,6 +6,8 @@
 
 ### Functions:
 - .readlines()
+- .to_dict()
+- .to_list()
 
 ### Reading CSV data
 #### Option 1: Using .readlines() method
@@ -38,8 +40,27 @@
   ```
 
 ### DataFrames & series: working with rows and columns
+- Two primary data structures of pandas:
+  - DataFrame - 2-dimensional dataset. Is equivalent to a table
+  - Series - 1-dimensional dataset. Is equivalent to a single column in a table
+```py
+import pandas
 
+data = pandas.read_csv("weather_data.csv")
+print(type(data))  # <class 'pandas.core.frame.DataFrame'>
+print(type(data['temp']))  # <class 'pandas.core.series.Series'>
 
+# Converting DataFrame into a dictionary
+data_dict = data.to_dict()
+print(data_dict)
+
+# Converting a column into a list
+temp_list = data["temp"].to_list()
+print(temp_list)
+
+# Calculate the average temperature
+print(data["temp"].mean())
+```
 
 ### The Great Squirrels census data analysis (with Pandas)
 
