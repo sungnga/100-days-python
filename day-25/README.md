@@ -94,8 +94,39 @@ data.to_csv("new_data.csv")
 ```
 
 ### The Great Squirrels census data analysis (with Pandas)
+```py
+import pandas
 
+# Read cvs data file
+data = pandas.read_csv("2018_Central_Park_Squirrel_Census_-_Squirrel_Data.csv")
 
+unique_fur_colors = data['Primary Fur Color'].unique()
+# print(unique_fur_colors)
+count = list(data['Primary Fur Color'].value_counts())
+# print(count)
+
+data_dict = {
+	"Fur Color": [],
+	"Count": []
+}
+
+for color in unique_fur_colors:
+  if color == 'Gray':
+    data_dict["Fur Color"].append('grey')
+  elif color == 'Cinnamon':
+    data_dict["Fur Color"].append('red')
+  elif color == 'Black':
+    data_dict["Fur Color"].append('black')
+data_dict["Count"] = count
+# print(data_dict)
+
+# Create squirrel count dataframe
+squirrel_count = pandas.DataFrame(data_dict)
+# print(squirrel_count)
+
+# Convert squirrel count dataframe to cvs file
+squirrel_count.to_csv("squirrel_count.csv")
+```
 
 ### Day 15 project: U.S. States Game
 
