@@ -46,7 +46,9 @@
 ```py
 import pandas
 
+# Reading a csv file
 data = pandas.read_csv("weather_data.csv")
+# Identifying a dataframe and a series
 print(type(data))  # <class 'pandas.core.frame.DataFrame'>
 print(type(data['temp']))  # <class 'pandas.core.series.Series'>
 
@@ -60,6 +62,35 @@ print(temp_list)
 
 # Calculate the average temperature
 print(data["temp"].mean())
+
+# Get the highest temp value in temp series
+print(data["temp"].max())
+
+# Get data in columns
+print(data['condition'])  # using the bracket notation. Treat it like a dictionary, calling it by the key
+print(data.condition)  # using it as an object, calling by its attribute
+
+# Get data in row
+print(data[data.day == 'Monday'])  # get the data for the rest of that row
+# Print the row of data which had the highest temp
+print(data[data.temp == data['temp'].max()])
+# get weather condition on Monday row
+monday = data[data.day == 'Monday']
+print(monday.condition)
+# convert Monday's temp to fahrenheit
+monday_temp = int(monday.temp)
+monday_temp_F = (monday_temp * 9/5) + 32
+print(monday_temp_F)
+
+# Create a dataframe from scratch
+data_dict = {
+	"students": ['Amy', 'James', 'Nga'],
+	"scores": [88, 76, 94]
+}
+data = pandas.DataFrame(data_dict)
+print(data)
+# convert the dataframe to a csv file
+data.to_csv("new_data.csv")
 ```
 
 ### The Great Squirrels census data analysis (with Pandas)
