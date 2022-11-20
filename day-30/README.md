@@ -4,6 +4,7 @@
 - Handling errors and catching exceptions
 - Raising your own exceptions 
 - Write, read, and update JSON data
+- Revisiting Password Manager project - handle exceptions and add search functionality
 
 ### Functions:
 - `try`, `except`, `else`, `finally`, `raise` keywords
@@ -177,14 +178,135 @@ print(total_likes)
   ```
 
 ### Write, read, and update JSON data in the Password Manager project
+- JSON stands for JavaScript Object Notation and is a type of data format. It is one of the most popular ways to transfer data across the internet and has been adopted by many programming languages
+- JSON format looks very similar to Python dictionary. It has key-value pair data structure
+- **Serialize** - writing data to json format
+- **Deserialize** - convert json-format data to other forms
 - Python json library docs: https://docs.python.org/3/library/json.html
-- The json module is a built-in library in Python
+- Python has in-built json library for formatting data
 - Built-in functions from the json library:
   - Write: `json.dump()`
   - Read: `json.load()`
   - Update: `json.update()`
+- **Writing json data:**
+  - The json.dump() method to write data in json format. This process is serializing data to json format
+  ```py
+  new_data = {
+    website: {
+      "email": email,
+      "password": password
+    }
+  }
+
+  with open("data.json", "w") as data_file:
+    # 1st arg is the data to write
+    # 2nd arg is the file to write to
+    # 3rd arg is formatting the json data
+    json.dump(new_data, data_file, indent=2)
+  ```
+- **Reading json data:**
+  - The json.load() method is to read json data
+  - When reading json data, Python automatically converts the data into a dictionary data type. This process is deserialize json data to Python dictionary
+  ```py
+  with open("data.json", "r") as data_file:
+    data = json.load(data_file)
+    print(type(data))  # <class 'dict'>
+  ```
+- **Updating json data:**
+  - The json.update() method updates or appends new data to the json file
+  ```py
+  new_data = {
+    website: {
+      "email": email,
+      "password": password
+    }
+  }
+
+  with open("data.json", "r") as data_file:
+    # Reading old data
+    data = json.load(data_file)
+    # Updating old data with new data
+    data.update(new_data)
+  ```
 
 ### Day 30 project: Password Manager v2
-```py
+- At the moment, we save the website, email, and password data in a text file. What we want to do is add a Search button that allows users to enter a website name and retrieve the email and password information shown in a pop up window
+- Secondly, a text file is very difficult to work with in terms of searching, updating, and formatting the file. We want to save the data in a json file format instead so that we can read, write, and update the file
+- Lastly, apply handling exceptions. When we try to write data to a json file and if that file doesn't exist, our program will crash
+- Handling exceptions:
+  ```py
+  def save_data():
+    website = website_entry.get()
+    email = email_entry.get()
+    password = password_entry.get()
+    new_data = {
+      website: {
+        "email": email,
+        "password": password
+      }
+    }
 
-```
+    if website == "" or password == "":
+      messagebox.showerror(title="Oops", message="Please don't leave any fields empty!")
+    else:
+      # TODO: Modify the code to handle the FileNotFoundError
+      # Create a new data.json file if it does not exist
+      # If the file already exists, then simply add the new entry
+      try:
+        with open("data.json", "r") as data_file:
+          # Reading old data
+          data = json.load(data_file)
+      except FileNotFoundError:
+        with open("data.json", "w") as data_file:
+          json.dump(new_data, data_file, indent=2)
+      else:
+        # Updating old data with new data
+        data.update(new_data)
+
+        # Saving updated data
+        with open("data.json", "w") as data_file:
+          # 1st arg is the data to write
+          # 2nd arg is the file to write to
+          # 3rd arg is formatting the json data
+          json.dump(data, data_file, indent=2)
+      finally:
+        website_entry.delete(0, END)
+        website_entry.focus()
+        password_entry.delete(0, END)
+  ```
+- Add search functionality:
+  ```py
+  from tkinter import messagebox
+
+  # ---------------------------- SEARCH PASSWORD ------------------------------- #
+  # 1. Add a "Search" button next to the website entry field
+  # 2. Adjust the layout and the other widgets as needed to get the desired look
+  # 3. Create a function called find_password() that gets triggered when the "Search" button is pressed
+  # 4. Check if the user's text entry matches an item in the data.json
+  # 5. If yes, show a messagebox with the website's name and password
+  # 6. Catch an exception that might occur trying to access the data.json show a messagebox with the text:
+  #    "No Data File Found"
+  # 7. If the user's website does not exist inside the data.json, show a messagebox that reads
+  #    "No details for the website exists"
+  def find_password():
+    website = website_entry.get()
+    try:
+      with open("data.json", "r") as file:
+        data = json.load(file)
+    except FileNotFoundError:
+      messagebox.showerror(title="Error", message="No Data File Found")
+    else:
+      if website in data:
+        email = data[website]["email"]
+        password = data[website]["password"]
+        messagebox.showinfo(title=website.title(), message=f"Email: {email}\nPassword: {password}")
+      else:
+        messagebox.showerror(title="Not Found", message=f"No details for the {website} exists.")
+    finally:
+      website_entry.delete(0, END)
+
+
+  # ---------------------------- UI SETUP ------------------------------- #
+  search_btn = Button(text="Search", highlightbackground="white", command=find_password, width=14)
+  search_btn.grid(row=1, column=2)
+  ```
