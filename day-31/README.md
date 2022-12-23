@@ -41,9 +41,6 @@ window.mainloop()
 ```
 
 ### Step 2: Create New Flash Cards
-1. Read the data from the french_words.cvs file in the data folder
-2. Pick a random French word/translation and put the word into the flashcard. Every time you press the ❌ or ✅ buttons, it should generate a new random word to display
-3. Use the pandas library to access the CSV file and generate a data frame. To get all the words/translation rows out as a list of dictionaries e.g. [{french_word: english_word}, {french_word2: english_word2}, {french_word3: english_word3}], use `DataFrame.to_dict(orient="records")`
 ```py
 from tkinter import *
 import pandas
@@ -93,4 +90,11 @@ right_btn = Button(image=right_btn_img, highlightthickness=0, border=0, command=
 right_btn.grid(row=1, column=1, pady=5)
 
 window.mainloop()
+```
+
+### Step 3: Flip the Cards
+1. After a delay of 3s (3000ms), the card should flip and display the English translation for the current word
+2. The card image should change to the card_back.png and the text color should change to white. The title of the card should change to "English" from "French"
+```py
+
 ```
